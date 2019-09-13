@@ -1,0 +1,23 @@
+---
+
+- name: create pritunl dirs
+  file:
+    path: "{{ item|safe|trim }}"
+    state: directory
+    owner: "{{ pritunl_user }}"
+    group: "{{ pritunl_group }}"
+    mode: 0755
+    recurse: true
+  with_items:
+    - "{{ pritunl_dir }}"
+
+- name: create pritunl mongo dirs
+  file:
+    path: "{{ item|safe|trim }}"
+    state: directory
+    owner: "{{ pritunl_mongo_user }}"
+    group: "{{ pritunl_mongo_group }}"
+    mode: 0755
+    recurse: true
+  with_items:
+    - "{{ pritunl_mongo_dir }}"

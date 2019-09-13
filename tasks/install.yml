@@ -1,0 +1,34 @@
+---
+
+- name: copy pritunl script
+  template:
+    src: "pritunl"
+    dest: /usr/local/bin/pritunl
+    mode: 0755
+    owner: root
+    group: root
+
+- name: copy pritunl service
+  template:
+    src: "pritunl.service"
+    dest: /etc/systemd/system/pritunl.service
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - restart pritunl
+
+- name: ensure pritunl service is restarted
+  service:
+    name: pritunl
+    state: restarted
+  changed_when: false
+
+- name: wait for pritunl to become ready
+  wait_for:
+    host: "0.0.0.0"
+    port: "80"
+    state: started
+    delay: 5
+    connect_timeout: 15
+    timeout: 3000

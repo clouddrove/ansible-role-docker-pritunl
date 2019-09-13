@@ -1,0 +1,17 @@
+---
+
+- name: restart pritunl
+  service:
+    name: pritunl
+    state: restarted
+    enabled: true
+
+- name: reload pritunl
+  systemd:
+    name: pritunl
+    state: reloaded
+
+- name: start pritunl
+  systemd:
+    name: pritunl
+    state: started

@@ -1,0 +1,23 @@
+---
+
+- name: setup group
+  group:
+    name: "{{ pritunl_group }}"
+    system: false
+
+- name: setup user
+  user:
+    name: "{{ pritunl_user }}"
+    system: false
+    group: "{{ pritunl_group }}"
+
+- name: setup group
+  group:
+    name: "{{ pritunl_mongo_group }}"
+    system: false
+
+- name: setup user
+  user:
+    name: "{{ pritunl_mongo_user }}"
+    system: false
+    group: "{{ pritunl_mongo_group }}"

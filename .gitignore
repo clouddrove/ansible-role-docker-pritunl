@@ -1,0 +1,5 @@
+# ignored files
+.idea
+*.iml
+*.zip
+molecule

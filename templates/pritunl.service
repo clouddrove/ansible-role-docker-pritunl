@@ -1,0 +1,13 @@
+[Unit]
+Description=Pritunl Server
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/usr/local/bin/pritunl
+ExecStop=-/usr/bin/docker rm -f -v pritunl
+
+[Install]
+WantedBy=multi-user.target
