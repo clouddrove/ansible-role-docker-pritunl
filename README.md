@@ -69,7 +69,8 @@ This module has a few dependencies:
 
 Followiing things includes in this role:
 
-- caddy
+- pritunl
+- mongodb
 
 
 

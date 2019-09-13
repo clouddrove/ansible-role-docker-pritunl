@@ -43,7 +43,8 @@ prerequesties:
 # yamllint enable
 # What Includes to display
 what_includes:
-  - name: "caddy"
+  - name: "pritunl"
+  - name: "mongodb"
 
 #  description of this project
 description: |-
