@@ -96,8 +96,9 @@ Followiing things includes in this role:
 
 ```yaml
   pritunl_version: "latest"
-  pritunl_dir: "/opt/pritunl"
-  pritunl_mongo_dir: "/opt/pritunl/mongo"
+  pritunl_path: "/opt/pritunl"
+  pritunl_mongo_path: "/opt/pritunl/mongo"
+  pritunl_log: "/var/log/pritunl.log"
   pritunl_user: pritunl
   pritunl_group: pritunl
   pritunl_mongo_user: mongo

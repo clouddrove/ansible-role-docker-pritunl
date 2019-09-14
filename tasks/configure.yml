@@ -9,7 +9,7 @@
     mode: 0755
     recurse: true
   with_items:
-    - "{{ pritunl_dir }}"
+    - "{{ pritunl_path }}"
 
 - name: create pritunl mongo dirs
   file:
@@ -20,4 +20,11 @@
     mode: 0755
     recurse: true
   with_items:
-    - "{{ pritunl_mongo_dir }}"
+    - "{{ pritunl_mongo_path }}"
+
+- name: transfer pritunl.conf
+  template:
+    dest: "{{ pritunl_path }}/pritunl.conf"
+    src: "{{ item }}"
+  with_items:
+    - config/pritunl.conf
