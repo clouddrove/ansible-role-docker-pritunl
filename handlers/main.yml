@@ -7,11 +7,13 @@
     enabled: true
 
 - name: reload pritunl
-  systemd:
+  service:
     name: pritunl
     state: reloaded
+    enabled: true
 
 - name: start pritunl
-  systemd:
+  service:
     name: pritunl
     state: started
+    enabled: true
