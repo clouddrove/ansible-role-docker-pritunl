@@ -9,7 +9,7 @@ docker rm -f -v pritunl || :
 
 docker run -u root --net=host --rm --name pritunl \
    -v "{{ pritunl_path }}":/var/lib/pritunl \
-   -v "{{ pritunl_mongo_path }}":/var/lib/mongodb \
+   -v "{{ mongo_path }}":/var/lib/mongodb \
    -v "{{ pritunl_path }}/pritunl.conf":/etc/pritunl.conf \
    -v "{{ pritunl_log }}":{{ pritunl_log }} \
      clouddrove/pritunl:{{ pritunl_version }}

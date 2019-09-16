@@ -15,12 +15,12 @@
   file:
     path: "{{ item|safe|trim }}"
     state: directory
-    owner: "{{ pritunl_mongo_user }}"
-    group: "{{ pritunl_mongo_group }}"
+    owner: "{{ mongo_user }}"
+    group: "{{ mongo_group }}"
     mode: 0755
     recurse: true
   with_items:
-    - "{{ pritunl_mongo_path }}"
+    - "{{ mongo_path }}"
 
 - name: transfer pritunl.conf
   template:

@@ -13,11 +13,11 @@
 
 - name: setup group
   group:
-    name: "{{ pritunl_mongo_group }}"
+    name: "{{ mongo_group }}"
     system: false
 
 - name: setup user
   user:
-    name: "{{ pritunl_mongo_user }}"
+    name: "{{ mongo_user }}"
     system: false
-    group: "{{ pritunl_mongo_group }}"
+    group: "{{ mongo_group }}"
