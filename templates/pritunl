@@ -7,21 +7,14 @@ docker pull clouddrove/pritunl:{{ pritunl_version }}
 
 docker rm -f -v pritunl || :
 
-# docker run -u root --net=host --rm --name pritunl \
-#    -v "{{ pritunl_path }}":/var/lib/pritunl \
-#    -v "{{ mongo_path }}":/var/lib/mongodb \
-#    -v "{{ pritunl_path }}/pritunl.conf":/etc/pritunl.conf \
-#    -v "{{ pritunl_log }}":{{ pritunl_log }} \
-#      clouddrove/pritunl:{{ pritunl_version }}
-
 docker run --name pritunl --privileged \
     -v "{{ pritunl_path }}":/var/lib/pritunl \
     -v "{{ mongo_path }}":/var/lib/mongodb \
     -v "{{ pritunl_path }}/pritunl.conf":/etc/pritunl.conf \
     -v "{{ pritunl_log }}":{{ pritunl_log }} \
 	-v pritunl-conf:/etc \
-	-p 12323:1194/udp \
-	-p 12323:1194/tcp \
+	-p 1194:1194/udp \
+	-p 1194:1194/tcp \
 	-p 80:80/tcp \
 	-p 443:443/tcp \
 	--restart unless-stopped \
