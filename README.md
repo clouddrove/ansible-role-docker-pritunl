@@ -93,7 +93,7 @@ Followiing things includes in this role:
 
 ## For default password
 ```console
-  $ sudo docker exec -it f3fc0129f3a4 pritunl default-password
+  $ sudo docker exec -it pritunl pritunl default-password
 ```
 
 
