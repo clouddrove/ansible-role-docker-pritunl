@@ -17,5 +17,4 @@ docker run --name pritunl --privileged \
 	-p 1194:1194/tcp \
 	-p 80:80/tcp \
 	-p 443:443/tcp \
-	--restart unless-stopped \
-	-d  clouddrove/pritunl:{{ pritunl_version }}
+	clouddrove/pritunl:{{ pritunl_version }}

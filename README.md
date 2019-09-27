@@ -91,6 +91,11 @@ Followiing things includes in this role:
     - clouddrove.ansible_role_docker_pritunl
 ```
 
+## For default password
+```console
+  $ sudo docker exec -it f3fc0129f3a4 pritunl default-password
+```
+
 
 ## Variables
 
