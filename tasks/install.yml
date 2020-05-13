@@ -22,6 +22,7 @@
   service:
     name: pritunl
     state: restarted
+    enabled: true
   changed_when: false
 
 - name: wait for pritunl to become ready
