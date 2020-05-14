@@ -29,5 +29,5 @@
   with_items:
     - config/pritunl.conf
 
-- name: create pritunl.log
+- name: create pritunl log
   shell: touch {{ pritunl_log }}
