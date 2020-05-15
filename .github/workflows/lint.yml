@@ -27,5 +27,14 @@ jobs:
       - name: Run yamllint.
         run: yamllint .
 
-      - name: Run ansible-lint.
-        run: ansible-lint
+
+      - name: 'Slack Notification'
+        uses: clouddrove/action-slack@v2
+        with:
+          status: ${{ job.status }}
+          fields: repo,author
+          author_name: 'Clouddrove'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()

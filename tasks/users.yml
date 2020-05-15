@@ -2,22 +2,22 @@
 
 - name: setup group
   group:
-    name: "{{ pritunl_group }}"
+    name: "{{pritunl_group}}"
     system: false
 
 - name: setup user
   user:
-    name: "{{ pritunl_user }}"
+    name: "{{pritunl_user}}"
     system: false
-    group: "{{ pritunl_group }}"
+    group: "{{pritunl_group}}"
 
 - name: setup group
   group:
-    name: "{{ mongo_group }}"
+    name: "{{mongo_group}}"
     system: false
 
 - name: setup user
   user:
-    name: "{{ mongo_user }}"
+    name: "{{mongo_user}}"
     system: false
-    group: "{{ mongo_group }}"
+    group: "{{mongo_group}}"

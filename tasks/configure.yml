@@ -2,32 +2,32 @@
 
 - name: create pritunl dirs
   file:
-    path: "{{ item|safe|trim }}"
+    path: "{{item|safe|trim}}"
     state: directory
-    owner: "{{ pritunl_user }}"
-    group: "{{ pritunl_group }}"
+    owner: "{{pritunl_user}}"
+    group: "{{pritunl_group}}"
     mode: 0755
     recurse: true
   with_items:
-    - "{{ pritunl_path }}"
+    - "{{pritunl_path}}"
 
 - name: create pritunl mongo dirs
   file:
-    path: "{{ item|safe|trim }}"
+    path: "{{item|safe|trim}}"
     state: directory
-    owner: "{{ mongo_user }}"
-    group: "{{ mongo_group }}"
+    owner: "{{mongo_user}}"
+    group: "{{mongo_group}}"
     mode: 0755
     recurse: true
   with_items:
-    - "{{ mongo_path }}"
+    - "{{mongo_path}}"
 
 - name: transfer pritunl.conf
   template:
-    dest: "{{ pritunl_path }}/pritunl.conf"
-    src: "{{ item }}"
+    dest: "{{pritunl_path}}/pritunl.conf"
+    src: "{{item}}"
   with_items:
     - config/pritunl.conf
 
 - name: create pritunl log
-  shell: touch {{ pritunl_log }}
+  shell: touch {{pritunl_log}}
