@@ -1,0 +1,40 @@
+---
+name: Lint
+'on':
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  test:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.7.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install yamllint ansible-lint
+
+      - name: Run yamllint.
+        run: yamllint .
+
+
+      - name: 'Slack Notification'
+        uses: clouddrove/action-slack@v2
+        with:
+          status: ${{ job.status }}
+          fields: repo,author
+          author_name: 'Clouddrove'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()
