@@ -3,9 +3,9 @@
 dependencies: []
 
 galaxy_info:
-  author: clouddrove
+  author: Anmol Nagpal
   description: This ansible role is used to install Pritunl and Mongodb with docker on server.
-  company: "CloudDrove, LLC"
+  company: "CloudDrove Inc."
   license: "license (BSD, MIT)"
   min_ansible_version: 2.4
   platforms:
