@@ -1,5 +1,9 @@
 ---
 
-- import_tasks: users.yml
-- import_tasks: configure.yml
-- import_tasks: install.yml
+- name: Users
+
+  ansible.builtin.import_tasks: users.yml
+- name: Configure
+  ansible.builtin.import_tasks: configure.yml
+- name: Install
+  ansible.builtin.import_tasks: install.yml
