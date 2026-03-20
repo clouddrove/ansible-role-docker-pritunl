@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
-      - name: Set up Python.
-        uses: actions/setup-python@v5
+      - name: Set up Python 3.7.
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.12'
+          python-version: '3.x'
 
       - name: Install test dependencies.
         run: pip3 install yamllint ansible-lint
