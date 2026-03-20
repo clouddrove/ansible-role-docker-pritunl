@@ -1,15 +1,15 @@
 ---
 
-- name: copy pritunl script
-  template:
+- name: Copy pritunl script
+  ansible.builtin.template:
     src: "pritunl"
     dest: /usr/local/bin/pritunl
     mode: 0755
     owner: root
     group: root
 
-- name: copy pritunl service
-  template:
+- name: Copy pritunl service
+  ansible.builtin.template:
     src: "pritunl.service"
     dest: /etc/systemd/system/pritunl.service
     mode: 0644
@@ -18,15 +18,15 @@
   notify:
     - restart pritunl
 
-- name: ensure pritunl service is restarted
-  service:
-    name: pritunl
+- name: Ensure pritunl service is restarted
+  ansible.builtin.service:
+    name: Pritunl
     state: restarted
     enabled: true
   changed_when: false
 
-- name: wait for pritunl to become ready
-  wait_for:
+- name: Wait for pritunl to become ready
+  ansible.builtin.wait_for:
     host: "0.0.0.0"
     port: "443"
     state: started

@@ -1,19 +1,19 @@
 ---
 
-- name: restart pritunl
-  service:
-    name: pritunl
+- name: Restart pritunl
+  ansible.builtin.service:
+    name: Pritunl
     state: restarted
     enabled: true
 
-- name: reload pritunl
-  service:
-    name: pritunl
+- name: Reload pritunl
+  ansible.builtin.service:
+    name: Pritunl
     state: reloaded
     enabled: true
 
-- name: start pritunl
-  service:
-    name: pritunl
+- name: Start pritunl
+  ansible.builtin.service:
+    name: Pritunl
     state: started
     enabled: true

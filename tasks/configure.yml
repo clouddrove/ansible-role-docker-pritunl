@@ -1,7 +1,7 @@
 ---
 
-- name: create pritunl dirs
-  file:
+- name: Create pritunl dirs
+  ansible.builtin.file:
     path: "{{item|safe|trim}}"
     state: directory
     owner: "{{pritunl_user}}"
@@ -11,8 +11,8 @@
   with_items:
     - "{{pritunl_path}}"
 
-- name: create pritunl mongo dirs
-  file:
+- name: Create pritunl mongo dirs
+  ansible.builtin.file:
     path: "{{item|safe|trim}}"
     state: directory
     owner: "{{mongo_user}}"
@@ -22,12 +22,14 @@
   with_items:
     - "{{mongo_path}}"
 
-- name: transfer pritunl.conf
-  template:
+- name: Transfer pritunl.conf
+  ansible.builtin.template:
+    mode: "0644"
     dest: "{{pritunl_path}}/pritunl.conf"
     src: "{{item}}"
   with_items:
     - config/pritunl.conf
 
-- name: create pritunl log
-  shell: touch {{pritunl_log}}
+- name: Create pritunl log
+  ansible.builtin.shell:
+    cmd: touch {{pritunl_log}}

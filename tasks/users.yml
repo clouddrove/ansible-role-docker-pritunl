@@ -1,23 +1,23 @@
 ---
 
-- name: setup group
-  group:
+- name: Setup group
+  ansible.builtin.group:
     name: "{{pritunl_group}}"
     system: false
 
-- name: setup user
-  user:
+- name: Setup user
+  ansible.builtin.user:
     name: "{{pritunl_user}}"
     system: false
     group: "{{pritunl_group}}"
 
-- name: setup group
-  group:
+- name: Setup group
+  ansible.builtin.group:
     name: "{{mongo_group}}"
     system: false
 
-- name: setup user
-  user:
+- name: Setup user
+  ansible.builtin.user:
     name: "{{mongo_user}}"
     system: false
     group: "{{mongo_group}}"
